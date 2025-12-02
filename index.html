@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/assets/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line Paletton | Paletas de Cores Minimalistas</title>
+    <meta name="description" content="Line Paletton: um explorador de paletas de cores. Descubra e copie paletas para seus projetos." />
+    <meta name="keywords" content="paletas de cores, design, UI, UX, hex, color, minimalista" />
+    <meta name="theme-color" content="#111827" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Line Paletton" />
+    <meta property="og:description" content="Explorador de paletas de cores moderno." />
+    <meta property="og:image" content="/assets/logo.svg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Line Paletton" />
+    <meta name="twitter:description" content="Explorador de paletas de cores moderno." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: white;
+      }
+      .circuit-wrapper {
+        min-height: 100%;
+        width: 100%;
+        position: relative;
+        background-color: white;
+      }
+      .circuit-background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 19px,
+            rgba(75, 85, 99, 0.08) 19px,
+            rgba(75, 85, 99, 0.08) 20px,
+            transparent 20px,
+            transparent 39px,
+            rgba(75, 85, 99, 0.08) 39px,
+            rgba(75, 85, 99, 0.08) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 19px,
+            rgba(75, 85, 99, 0.08) 19px,
+            rgba(75, 85, 99, 0.08) 20px,
+            transparent 20px,
+            transparent 39px,
+            rgba(75, 85, 99, 0.08) 39px,
+            rgba(75, 85, 99, 0.08) 40px
+          ),
+          radial-gradient(
+            circle at 20px 20px,
+            rgba(55, 65, 81, 0.12) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 40px 40px,
+            rgba(55, 65, 81, 0.12) 2px,
+            transparent 2px
+          );
+        background-size:
+          40px 40px,
+          40px 40px,
+          40px 40px,
+          40px 40px;
+      }
+      .creative-button {
+        padding: 0;
+        border: none;
+        transform-origin: center;
+        font-family: "Gochi Hand", cursive;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        padding-bottom: 3px;
+        border-radius: 5px;
+        box-shadow: 0 2px 0 #494a4b;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background-color: hsl(197, 90%, 73%); /* indigo-500 */
+      }
+
+      .creative-button.angled {
+        transform: rotate(2deg);
+      }
+
+      .creative-button span {
+        background: #f1f5f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        border-radius: 5px;
+        border: 2px solid #1f2937;
+      }
+      
+      .creative-button.active span {
+        background: #eef2ff; /* indigo-100 */
+      }
+
+      .creative-button:active {
+        transform: translateY(3px);
+        padding-bottom: 0px;
+        outline: 0;
+      }
+      
+      .creative-button.angled:active {
+        transform: translateY(3px) rotate(2deg);
+      }
+
+      .creative-surface {
+        padding: 0;
+        border: none;
+        transform-origin: center;
+        font-family: "Gochi Hand", cursive;
+        cursor: default;
+        border-radius: 5px;
+        box-shadow: 0 2px 0 #494a4b;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background-color: hsl(197, 90%, 73%);
+      }
+
+      .creative-surface.angled { transform: rotate(2deg); }
+
+      .creative-panel {
+        background: #f1f5f8;
+        display: block;
+        padding: 0.6rem 1rem;
+        border-radius: 5px;
+        border: 2px solid #1f2937;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
